@@ -2,17 +2,10 @@ import streamlit as st #type: ignore
 import pickle
 import pandas as pd #type: ignore
 import requests #type: ignore
-
-# def fetch_poster(movie_id):
-#     response = requests.get("https://api.themoviedb.org/3/movie/{}?api_key=2fdc52d8885026845e7e1a5dcf3cae59".format(movie_id))
-#     data = response.json()
-#     poster_path = data['poster_path']
-#     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-#     8265bd1679663a7ea12ac168da84d2e8&language=en-US
-#     return full_path
+from key import api_key
 
 def fetch_poster(movie_id):
-    url = "https://api.themoviedb.org/3/movie/{}?api_key=2fdc52d8885026845e7e1a5dcf3cae59".format(movie_id)
+    url = api_key.format(movie_id)
     data = requests.get(url)
     data = data.json()
     poster_path = data['poster_path']
